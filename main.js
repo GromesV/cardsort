@@ -15,6 +15,12 @@ TODO:
     [x] BORDER BOX 1 PX RASTURI SVE KAD JRE AKTIVAN, SREDITI
     [x] KAD SE SABIJE PROZOR DA BUDE UZAK,JEDNA KARTICA BUDE UZASNO VISOKA
     [x]     NAPRAVITI NEKAKO DA SE OSTALE PRILAGODE TAKO DA SVE BUDU ISTE VELICINE
+    [x] STAVLJAMO SVUDA NOVI CONTAINER QUERY + MEDIA SCREEN QUERY   https://ishadeed.com/article/say-hello-to-css-container-queries/  
+            - NA OVAJ NACIN AKO NEKO RESIZE-UJE WINDOW, AKTIVIRA SE CONTAINTER QUERY I ELEMENTI SE PRESLOZE 
+                IZ DISPLAY FLEX U DISPLAY GRID, DODATNO SE AKTIVIRA grid-auto-rows: 1fr; TAKO DA SVI ELEMENTI AUTOMATSKI IMAJU ISTU VISINU
+            - KADA SMO U DESKTOP VIEW, ELEMENTI SE PRESLOZE DISPLAY FLEX ROW, TAKO DA IMAJU ISTI WIDTH I HEIGHT PREMA NAJVECEM CHILDU
+            
+        
 
 */
  
@@ -87,7 +93,7 @@ createApp({
             
             this.rowLabel = this.rows[this.curRowIndex];
             //if its a user click and we have data
-            if (user && this.data.get(this.curRowIndex-1)){
+            if (user!=undefined && this.data.get(this.curRowIndex-1)!=undefined ){
                 //we want to make the last answer "fly away" to the laft, so we display previous label
                 this.rowLabel = this.rows[this.curRowIndex-1];
                 rowCard.classList.add('animate__fadeOutLeft');
@@ -106,7 +112,7 @@ createApp({
                 this.curRowIndex--;
             this.rowLabel = this.rows[this.curRowIndex];
             //ako user klikne back i imamo podatke
-            if (user && this.data.get(this.curRowIndex)){
+            if (user!=undefined && this.data.get(this.curRowIndex+1)!=undefined ){
                 //regarding setting the labels, check comments in the next function
                 this.rowLabel = this.rows[this.curRowIndex+1];
                 rowCard.classList.add('animate__fadeOutRight');
@@ -156,7 +162,7 @@ createApp({
             }
             //now we go through answers and if selected style appropriately
             let bcktElmnt = document.getElementById('col_'+this.data.get(this.curRowIndex));
-            if (bcktElmnt){
+            if (bcktElmnt != null){
                 if (this.data.get(this.curRowIndex)!==undefined){
                     bcktElmnt.classList.add('answer-selected');
                 }
@@ -175,7 +181,7 @@ createApp({
             else
             this.cols = [
                         'Price',
-                        'Operating system kljads jfasl jfladksj fkldaj kfljaslkjfajfasl jfladksj fkldaj kfljasl',
+                        'Operating system kljads jfasl jfladksj fkldaj kfljaslkjfajfasl jfladksj fkldaj kfljasl Operating system kljads jfasl jfladksj fkldaj kfljaslkjfajfasl jfladksj fkldaj kfljasl',
                         'Brand',
                         '5G support',
                         'Display',

@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Roboto:wght@300&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link href="main.css?v9" rel="stylesheet" />
+    <link href="main.css?v21" rel="stylesheet" />
 </head>
 
 <body>
@@ -22,7 +22,7 @@
 
     <div id="app">
         <div id="example" style="margin:20px;">
-            <select v-model="styling" @change="changeStyle">
+            <select v-model="styling" @change="changeStyle" data-cy="select-styling">
                 <option disabled value="">Pick style</option>
                 <option value="cards">Cards</option>
                 <option value="rating">Rating</option>

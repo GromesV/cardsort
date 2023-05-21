@@ -32,14 +32,36 @@ body {
     padding: 10px;
 }
 
-@media (max-width: 768px) {
+
+@media screen and (max-width: 992px) {
     #app {
         min-width: 100vw;
         padding: 10px;
     }
 }
 
-@media (max-width: 768px) {
+
+@container (max-width: 992px) {
+    #app {
+        min-width: 100vw;
+        padding: 10px;
+    }
+}
+ 
+
+/* this removes scrollbars showing up when card with loads of text gets tossed left/right */
+
+#real {
+    overflow: hidden;
+}
+
+@media screen and (max-width: 450px) {
+    #real {
+        min-height: 40vw;
+    }
+}
+
+@container (max-width: 640px) {
     #real {
         min-height: 40vw;
     }
@@ -54,11 +76,20 @@ body {
     /* flex-grow: 1; */
 }
 
+/* https://ishadeed.com/article/say-hello-to-css-container-queries/ */
+
 #carousel-container {
     min-width: 50vw;
+    container-type: inline-size;
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 450px) {
+    #carousel-container {
+        min-width: 80vw;
+    }
+}
+
+@container (max-width: 640px) {
     #carousel-container {
         min-width: 80vw;
     }
@@ -164,21 +195,29 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
 }
 
-bucket-child {
+.bucket-child {
     min-height: 10vh;
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 450px) {
     .buckets-parent {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        display: grid;
+        grid-auto-rows: 1fr;
     }
     bucket-child {
+        min-height: 15vh;
+    }
+}
+
+@container (max-width: 640px) {
+    .buckets-parent {
+        display: grid;
+        grid-auto-rows: 1fr;
+    }
+    .bucket-child {
         min-height: 15vh;
     }
 }
