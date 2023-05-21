@@ -1,0 +1,346 @@
+:root {
+    --main-bg-color: #b1332e;
+}
+
+html {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    background-color: whitesmoke;
+    color: rgb(15, 15, 15);
+}
+
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+#app {
+    max-width: 60vw;
+    padding: 10px;
+}
+
+@media (max-width: 768px) {
+    #app {
+        min-width: 100vw;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    #real {
+        min-height: 40vw;
+    }
+}
+
+.rowCard {
+    min-height: 10vh;
+    min-width: 10vw;
+    word-wrap: break-word;
+    white-space: normal;
+    text-align: center;
+    /* flex-grow: 1; */
+}
+
+#carousel-container {
+    min-width: 50vw;
+}
+
+@media (max-width: 768px) {
+    #carousel-container {
+        min-width: 80vw;
+    }
+}
+
+.flex-container {
+    display: flex;
+    align-items: stretch;
+}
+
+.flex-item {
+    flex: 1;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+
+.flex-row-centered {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-row-end {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.child-same-width {
+    flex: 1 1 0px;
+    flex-basis: 0;
+}
+
+.child-same-height {
+    align-self: stretch;
+}
+
+
+.text-center {
+    text-align: center;
+}
+
+.p-5 {
+    padding: 0.5em;
+}
+
+.m-5 {
+    margin: 0.5em;
+}
+
+
+
+.error-container {
+    min-height: 40px;
+    padding: 5px;
+    position: relative;
+    bottom: 1em;
+    top: -1em;
+    text-align: center;
+    border-radius: 5px;
+    height: 7vh;
+}
+
+.error-container-color {
+    /* border-bottom: 2px solid rgb(255, 0, 55); */
+    font-weight: 900;
+    color: whitesmoke;
+    background-color: var(--main-bg-color);
+}
+
+.card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    /* 5px rounded corners */
+    min-height: 5vh;
+    min-width: 5vw;
+    background-color: darkgray;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    background-color: gray;
+    transform: scale(1.02);
+}
+
+/* Add some padding inside the card container */
+.container {
+    padding: 2px 16px;
+}
+
+.visible {
+    visibility: hidden;
+}
+
+
+.buckets-parent {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+bucket-child {
+    min-height: 10vh;
+}
+
+@media (max-width: 768px) {
+    .buckets-parent {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    bucket-child {
+        min-height: 15vh;
+    }
+}
+
+
+
+
+
+.rating-parent {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.answer-selected {
+    background-color: gray!important;
+    font-weight: bold;
+}
+
+.bucket-text {
+    overflow-wrap: anywhere;
+}
+
+.transform {
+    -webkit-transition: all 400ms ease;
+    -moz-transition: all 400ms ease;
+    -o-transition: all 400ms ease;
+    -ms-transition: all 400ms ease;
+    transition: all 400ms ease;
+}
+
+
+
+button {
+    border-radius: 12px;
+    border: 1px solid #ca6360;
+    background-color: var(--main-bg-color);
+    color: whitesmoke;
+    min-height: 30px;
+    min-width: 64px;
+}
+
+button:hover {
+    border: 2px solid #ca6360;
+}
+
+.rating-child {
+    border-left: 2px solid whitesmoke;
+    width: 40px;
+    height: 30px;
+    background-color: darkgray;
+    color: black;
+}
+
+.rating-child:first-child {
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+}
+
+.rating-child:hover{
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+    background-color: gray;
+    transform: scale(1.01);
+
+}
+
+.rating-child:last-child {
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+
+
+
+
+
+
+
+/* ZA MAXDIFF */
+
+
+.maxdiff-box {
+    min-width: 20vw;
+}
+
+.font-bold {
+    font-weight: bold;
+}
+
+
+
+/* 
+    CUSTOM RADIO BUTTON
+    https://www.w3schools.com/howto/howto_css_custom_checkbox.asp
+*/
+
+.maxdiff-column {
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.container {
+    display: block;
+    position: relative;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 21px;
+    width: 21px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked~.checkmark {
+    background-color: var(--main-bg-color);
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked~.checkmark:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+    top: 7px;
+    left: 7px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: white;
+}

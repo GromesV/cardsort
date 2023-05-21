@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Roboto:wght@300&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="main.css?v9" rel="stylesheet" />
+</head>
+
+<body>
+
+
+
+
+    <div id="app">
+        <div id="example" style="margin:20px;">
+            <select v-model="styling" @change="changeStyle">
+                <option disabled value="">Pick style</option>
+                <option value="cards">Cards</option>
+                <option value="rating">Rating</option>
+                <option value="maxdiff">Maxdiff</option>
+            </select>
+        </div>
+
+
+        <h2>This is some random qnr text chat gpt generated for qnr about dog food. Serves as placeholder for some
+            really loooooooooong question text.
+            <br><br>
+            Would you be interested in receiving promotional offers or discounts related to dog products/services?
+            Which factors influence your decision when purchasing dog food? (Select all that apply)
+            If you own a dog, how many dogs do you have?
+        </h2>
+        <h4>Select one</h4>
+        <div :class="classObject">
+            <p class="{'visible': error}" style="position: absolute;">{{error}}</p>
+        </div>
+
+        <div v-if="styling!='maxdiff'">
+            {{curRowIndex+1 }} / {{rows.length}}
+        </div>
+        <div class="flex-row-end" v-if="styling!='maxdiff'" style="padding: 15px;">
+            <button @click="prev(true)" :class="{ visible: !showBack }">Prev</button>
+            <button @click="next(true)" :class="{ visible: !showNext }">Next</button>
+        </div>
+
+        <div class="p-5 m-5" v-if="styling!='maxdiff'" id="carousel-container">
+            <div id="real" class="flex-row-centered  m-5 p-5">
+                <div :id=" 'rowCard_'+curRowIndex " class="rowCard    p-5 animate__animated">
+                    <h3>{{ rowLabel }}</h3>
+                </div>
+            </div>
+            <div id='cols-container' :class="{
+                'children-same-width' : true,
+                'animate__animated' : true,
+                'buckets-parent' : styling=='cards',
+                'rating-parent' : styling=='rating',
+            }">
+                <div v-for="(c, colNdx) in cols" role="button" :key="colNdx" @click="bucketPicked(colNdx)" :class="{
+                            'card col-child p-5 m-5 flex-row-centered transform child-same-width child-same-height': styling=='cards',
+                            'rating-child flex-row-centered transform': styling=='rating'
+                        } " :id="'col_'+colNdx">
+                    <p class="flex-row-centered text-center bucket-text">
+                        {{c}}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        <div v-if="styling=='maxdiff'">
+            <div class="flex-row-end maxdiff-box">
+                <div>
+                    <p class="font-bold">I preffer most</p>
+
+                </div>
+                {{c}}
+                <div>
+                    <p class="font-bold">I preffer least</p>
+                </div>
+            </div>
+            <div v-for="(c, colNdx) in cols" role="button" :key="colNdx">
+                <div class="flex-row-end maxdiff-box p-5 m-5">
+                    <div>
+                        <label class="container">
+                            <input type="radio" id="huey" name="best" value="1" checked>
+                            <span class="checkmark"></span>
+                        </label>
+
+                    </div>
+                    <div class="maxdiff-column">
+                        <p class="ext-center">{{c}}</p>
+                    </div>
+                    <div>
+                        <label class="container">
+                            <input type="radio" id="huey" name="WORST" value="0" checked>
+                            <span class="checkmark"></span>
+                        </label>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>
